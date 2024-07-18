@@ -5,7 +5,11 @@ from urllib.parse import urljoin
 # Swagger文档的URL  
 swagger_base_url = 'https://www.test.com/'  
 swagger_json_url = f'{swagger_base_url}/api/v2/api-docs'  
-  
+
+# 获取当前时间并格式化为字符串  
+current_time = datetime.now().strftime("%Y%m%d%H%M%S")  
+file_name = f'api_docs_{current_time}.xlsx' 
+
 # 发送GET请求以获取Swagger文档  
 response = requests.get(swagger_json_url)  
   
@@ -58,8 +62,8 @@ if response.status_code == 200:
         # 创建DataFrame  
         df = pd.DataFrame(data)  
   
-        # 将DataFrame保存到xlsx文件  
-        df.to_excel('test.xlsx', index=False, engine='openpyxl')  
+        # 将DataFrame保存到xlsx文件中，文件以当前时间戳命名  
+        df.to_excel(file_name, index=False, engine='openpyxl')  
   
     except requests.exceptions.JSONDecodeError:  
         # 如果解析失败，提示用户获取的内容不是JSON格式  
