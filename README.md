@@ -7,7 +7,7 @@
 -f 可选参数，保存的文件名，如为空，默认以当前时间戳命名</br>
 
 如：</br>
-python .\swagger_url_go2.0.py -u https://www.test.com:9999/v2/api-docs  -f test
+python .\swagger_url_go2.0.py -u https://www.test.com:9999/v2/api-docs  -f test</br>
 python .\swagger_url_go2.0.py -u https://www.test.com:9999/v2/api-docs
 
 </br>
